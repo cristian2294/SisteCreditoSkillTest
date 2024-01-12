@@ -1,5 +1,6 @@
 package com.arboleda.sistecreditoskilltest.presentation.screens
 
+import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -44,6 +45,7 @@ import com.arboleda.sistecreditoskilltest.R
 import com.arboleda.sistecreditoskilltest.domain.models.GameDetail
 import com.arboleda.sistecreditoskilltest.domain.models.Screenshots
 import com.arboleda.sistecreditoskilltest.presentation.states.GameDetailState
+import com.arboleda.sistecreditoskilltest.presentation.viewmodels.FavoriteGamesViewModel
 import com.arboleda.sistecreditoskilltest.presentation.viewmodels.GameDetailViewModel
 
 @Composable
@@ -51,6 +53,7 @@ fun GameDetailScreen(
     navController: NavHostController,
     id: Int,
     gameDetailViewModel: GameDetailViewModel,
+    favoriteGamesViewModel: FavoriteGamesViewModel,
 ) {
     gameDetailViewModel.getGameDetail(id)
     val showErrorDialog: Boolean by gameDetailViewModel.showErrorDialog.collectAsState()
@@ -73,6 +76,7 @@ fun GameDetailScreen(
             ShowGameDetail(
                 navController,
                 (gameDetailState as GameDetailState.onSuccess).gameDetail,
+                favoriteGamesViewModel,
             )
         }
     }
@@ -80,7 +84,11 @@ fun GameDetailScreen(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ShowGameDetail(navController: NavHostController, gameDetail: GameDetail) {
+fun ShowGameDetail(
+    navController: NavHostController,
+    gameDetail: GameDetail,
+    favoriteGamesViewModel: FavoriteGamesViewModel,
+) {
     Scaffold(
         bottomBar = {
             MenuOptions(navController, modifier = Modifier)
@@ -89,6 +97,7 @@ fun ShowGameDetail(navController: NavHostController, gameDetail: GameDetail) {
             ButtonAddFavorites(
                 modifier = Modifier,
                 gameDetail = gameDetail,
+                favoriteGamesViewModel = favoriteGamesViewModel,
             )
         },
         floatingActionButtonPosition = FabPosition.End,
@@ -127,12 +136,21 @@ fun ShowGameDetail(navController: NavHostController, gameDetail: GameDetail) {
 }
 
 @Composable
-fun ButtonAddFavorites(modifier: Modifier, gameDetail: GameDetail) {
+fun ButtonAddFavorites(
+    modifier: Modifier,
+    gameDetail: GameDetail,
+    favoriteGamesViewModel: FavoriteGamesViewModel,
+) {
     val context = LocalContext.current
     FloatingActionButton(
         modifier = modifier,
         onClick = {
-            // TODO: implement add favorite game with room
+            favoriteGamesViewModel.addFavoriteGame(gameDetail.toFavoriteGame())
+            Toast.makeText(
+                context,
+                R.string.game_detail_screen_button_add_favorites,
+                Toast.LENGTH_SHORT,
+            ).show()
         },
         containerColor = Color.White,
         contentColor = Color.Red,

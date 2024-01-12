@@ -285,7 +285,7 @@ fun MenuOptions(navController: NavHostController, modifier: Modifier) {
             selected = index == 1,
             onClick = {
                 index = 1
-                // TODO: navigate to favorites screen
+                navController.navigate(Routes.favoritesScreen.route)
             },
             icon = {
                 Icon(

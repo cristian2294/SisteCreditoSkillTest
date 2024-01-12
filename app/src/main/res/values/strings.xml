@@ -19,5 +19,9 @@
     <string name="game_detail_screen.developer_title">Desarrolladora</string>
     <string name="game_detail_screen.url_title">Sitio Web</string>
     <string name="game_detail_screen.screenshots_title">Capturas de pantalla</string>
+    <string name="game_detail_screen.button_add_favorites">Se ha agregado el juego a tu seccion de favoritos exitosamente.</string>
+
+    <!-- Favorite Games Screen  -->
+    <string name="favorite_games.button_remove_favorite">Se ha eliminado el juego a tu seccion de favoritos exitosamente.</string>
 
 </resources>

@@ -1,9 +1,9 @@
-package com.arboleda.sistecreditoskilltest.data.repositories
+package com.arboleda.sistecreditoskilltest.data.repositories.network
 
 import com.arboleda.sistecreditoskilltest.data.endpoints.GameApi
 import com.arboleda.sistecreditoskilltest.data.models.toDomain
 import com.arboleda.sistecreditoskilltest.domain.models.Game
-import com.arboleda.sistecreditoskilltest.domain.repositories.GameRepository
+import com.arboleda.sistecreditoskilltest.domain.repositories.network.GameRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject

@@ -54,7 +54,7 @@ android {
 dependencies {
 
     val hiltVersion = "2.44"
-    val roomVersion = "2.4.2"
+    val roomVersion = "2.5.0"
     val retrofitVersion = "2.9.0"
     val mockkVersion = "1.13.5"
     val coilVersion = "2.2.2"

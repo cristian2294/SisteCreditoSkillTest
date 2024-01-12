@@ -9,8 +9,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.arboleda.sistecreditoskilltest.presentation.screens.FavoriteGamesScreen
 import com.arboleda.sistecreditoskilltest.presentation.screens.GameDetailScreen
 import com.arboleda.sistecreditoskilltest.presentation.screens.GamesScreen
+import com.arboleda.sistecreditoskilltest.presentation.viewmodels.FavoriteGamesViewModel
 import com.arboleda.sistecreditoskilltest.presentation.viewmodels.GameDetailViewModel
 import com.arboleda.sistecreditoskilltest.presentation.viewmodels.GamesViewModel
 import com.arboleda.sistecreditoskilltest.ui.theme.SisteCreditoSkillTestTheme
@@ -26,6 +28,7 @@ class MainActivity : ComponentActivity() {
 
         val gamesViewModel: GamesViewModel by viewModels()
         val gameDetailViewModel: GameDetailViewModel by viewModels()
+        val favoriteGamesViewModel: FavoriteGamesViewModel by viewModels()
         setContent {
             SisteCreditoSkillTestTheme {
                 val navController = rememberNavController()
@@ -47,6 +50,13 @@ class MainActivity : ComponentActivity() {
                             navController = navController,
                             id = input.arguments?.getInt(GAME_ID) ?: 0,
                             gameDetailViewModel = gameDetailViewModel,
+                            favoriteGamesViewModel = favoriteGamesViewModel,
+                        )
+                    }
+                    composable(route = Routes.favoritesScreen.route) {
+                        FavoriteGamesScreen(
+                            navController = navController,
+                            favoriteGamesViewModel = favoriteGamesViewModel,
                         )
                     }
                 }

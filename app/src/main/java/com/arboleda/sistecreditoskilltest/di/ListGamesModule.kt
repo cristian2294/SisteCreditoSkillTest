@@ -1,8 +1,8 @@
 package com.arboleda.sistecreditoskilltest.di
 
 import com.arboleda.sistecreditoskilltest.data.endpoints.GameApi
-import com.arboleda.sistecreditoskilltest.data.repositories.GameRepositoryImpl
-import com.arboleda.sistecreditoskilltest.domain.repositories.GameRepository
+import com.arboleda.sistecreditoskilltest.data.repositories.network.GameRepositoryImpl
+import com.arboleda.sistecreditoskilltest.domain.repositories.network.GameRepository
 import com.arboleda.sistecreditoskilltest.domain.usecases.GetGamesUC
 import com.arboleda.sistecreditoskilltest.presentation.viewmodels.GamesViewModel
 import dagger.Module

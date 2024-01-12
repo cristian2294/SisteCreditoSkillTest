@@ -11,5 +11,10 @@ class Constants {
         const val HOME_SCREEN = "home_screen"
         const val GAME_DETAIL_SCREEN = "game_detail_screen/{id}"
         const val GAME_ID = "id"
+
+        const val FAVORITES_SCREEN = "favorites_screen"
+
+        // database
+        const val DATABASE_NAME = "FavoriteGamesDataBase"
     }
 }
