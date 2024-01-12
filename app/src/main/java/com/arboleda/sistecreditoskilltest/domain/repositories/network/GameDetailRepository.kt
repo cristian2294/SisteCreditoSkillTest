@@ -1,4 +1,4 @@
-package com.arboleda.sistecreditoskilltest.domain.repositories
+package com.arboleda.sistecreditoskilltest.domain.repositories.network
 
 import com.arboleda.sistecreditoskilltest.domain.models.GameDetail
 

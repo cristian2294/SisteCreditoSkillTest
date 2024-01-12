@@ -11,7 +11,16 @@ data class GameDetail(
     val description: String = "",
     val minimumSystemRequirements: MinimumSystemRequirements? = null,
     val screenshots: List<Screenshots> = arrayListOf(),
-)
+) {
+    fun toFavoriteGame(): FavoriteGame {
+        return FavoriteGame(
+            id = id,
+            title = title,
+            thumbnail = thumbnail,
+            developer = developer,
+        )
+    }
+}
 
 data class MinimumSystemRequirements(
     val graphics: String? = "",
