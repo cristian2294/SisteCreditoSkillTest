@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">SisteCreditoSkillTest</string>
+
+    <!-- Home Screen  -->
+    <string name="home_screen.menu_option.home">Inicio</string>
+    <string name="home_screen.menu_option.favorites">Favoritos</string>
+    <string name="home_screen.menu_option.categories">Categorias</string>
+    <string name="home_screen.content_description.developer">Desarrolladora</string>
+
+    <!-- Home Screen Error Dialog -->
+    <string name="home_screen.error_dialog.title">Ha ocurrido un error</string>
+    <string name="home_screen.error_dialog.description">Se ha presentado un error inesperado  %s</string>
+    <string name="home_screen.error_dialog.button_understood">Entendido</string>
+
+    <!-- Categories Screen  -->
+    <string name="categories_screen.soon">Esta funcion no esta habilitada en el mómento. Estara disponible en una proxima version</string>
 </resources>
