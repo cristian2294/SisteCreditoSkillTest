@@ -8,6 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.arboleda.sistecreditoskilltest.presentation.screens.GamesScreen
+import com.arboleda.sistecreditoskilltest.presentation.viewmodels.GameDetailViewModel
 import com.arboleda.sistecreditoskilltest.presentation.viewmodels.GamesViewModel
 import com.arboleda.sistecreditoskilltest.ui.theme.SisteCreditoSkillTestTheme
 import com.arboleda.sistecreditoskilltest.utils.Constants
@@ -18,7 +19,9 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         val gamesViewModel: GamesViewModel by viewModels()
+        val gameDetailViewModel: GameDetailViewModel by viewModels()
         setContent {
             SisteCreditoSkillTestTheme {
                 val navController = rememberNavController()
