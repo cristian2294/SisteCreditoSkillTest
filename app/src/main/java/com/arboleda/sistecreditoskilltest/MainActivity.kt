@@ -9,6 +9,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.arboleda.sistecreditoskilltest.presentation.screens.FavoriteGamesScreen
 import com.arboleda.sistecreditoskilltest.presentation.screens.GameDetailScreen
 import com.arboleda.sistecreditoskilltest.presentation.screens.GamesScreen
 import com.arboleda.sistecreditoskilltest.presentation.viewmodels.FavoriteGamesViewModel
@@ -49,6 +50,12 @@ class MainActivity : ComponentActivity() {
                             navController = navController,
                             id = input.arguments?.getInt(GAME_ID) ?: 0,
                             gameDetailViewModel = gameDetailViewModel,
+                            favoriteGamesViewModel = favoriteGamesViewModel,
+                        )
+                    }
+                    composable(route = Routes.favoritesScreen.route) {
+                        FavoriteGamesScreen(
+                            navController = navController,
                             favoriteGamesViewModel = favoriteGamesViewModel,
                         )
                     }

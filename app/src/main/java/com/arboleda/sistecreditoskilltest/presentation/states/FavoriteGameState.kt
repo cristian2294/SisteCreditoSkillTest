@@ -6,5 +6,5 @@ sealed class FavoriteGameState {
 
     object onLoading : FavoriteGameState()
     data class onSuccess(val favoriteGames: List<FavoriteGame>) : FavoriteGameState()
-    data class onError(val message: Throwable) : FavoriteGameState()
+    data class onError(val error: Throwable) : FavoriteGameState()
 }

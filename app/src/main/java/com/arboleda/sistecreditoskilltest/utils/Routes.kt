@@ -1,5 +1,6 @@
 package com.arboleda.sistecreditoskilltest.utils
 
+import com.arboleda.sistecreditoskilltest.utils.Constants.Companion.FAVORITES_SCREEN
 import com.arboleda.sistecreditoskilltest.utils.Constants.Companion.GAME_DETAIL_SCREEN
 import com.arboleda.sistecreditoskilltest.utils.Constants.Companion.HOME_SCREEN
 
@@ -8,4 +9,6 @@ sealed class Routes(val route: String) {
     object gameDetailScreen : Routes(GAME_DETAIL_SCREEN) {
         fun createRoute(id: Int) = "game_detail_screen/$id"
     }
+
+    object favoritesScreen : Routes(FAVORITES_SCREEN)
 }
