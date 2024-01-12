@@ -1,8 +1,5 @@
 package com.arboleda.sistecreditoskilltest.domain.models
 
-import com.arboleda.sistecreditoskilltest.data.models.MinimumSystemRequirements
-import com.arboleda.sistecreditoskilltest.data.models.Screenshots
-
 data class GameDetail(
     val id: Int = 0,
     val title: String = "",
@@ -17,11 +14,11 @@ data class GameDetail(
 )
 
 data class MinimumSystemRequirements(
-    val graphics: String,
-    val memory: String,
-    val os: String,
-    val processor: String,
-    val storage: String,
+    val graphics: String? = "",
+    val memory: String? = "",
+    val os: String? = "",
+    val processor: String? = "",
+    val storage: String? = "",
 )
 
 data class Screenshots(

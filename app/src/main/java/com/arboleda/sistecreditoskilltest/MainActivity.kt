@@ -43,7 +43,11 @@ class MainActivity : ComponentActivity() {
                         route = Routes.gameDetailScreen.route,
                         arguments = listOf(navArgument(GAME_ID) { type = NavType.IntType }),
                     ) { input ->
-                        GameDetailScreen()
+                        GameDetailScreen(
+                            navController = navController,
+                            id = input.arguments?.getInt(GAME_ID) ?: 0,
+                            gameDetailViewModel = gameDetailViewModel,
+                        )
                     }
                 }
             }

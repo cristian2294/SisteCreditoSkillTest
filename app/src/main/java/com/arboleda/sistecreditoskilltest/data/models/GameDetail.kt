@@ -2,6 +2,8 @@ package com.arboleda.sistecreditoskilltest.data.models
 
 import com.google.gson.annotations.SerializedName
 import com.arboleda.sistecreditoskilltest.domain.models.GameDetail as GameDetailDomain
+import com.arboleda.sistecreditoskilltest.domain.models.MinimumSystemRequirements as MinimumSystemRequirementsDomain
+import com.arboleda.sistecreditoskilltest.domain.models.Screenshots as ScreenshotsDomain
 
 data class GameDetail(
     @SerializedName("id")
@@ -35,8 +37,8 @@ data class GameDetail(
             developer = developer,
             releaseDate = releaseDate,
             description = description,
-            minimumSystemRequirements = minimumSystemRequirements,
-            screenshots = screenshots,
+            minimumSystemRequirements = minimumSystemRequirements?.toDomain(),
+            screenshots = screenshots.map { it.toDomain() },
         )
     }
 }
@@ -52,11 +54,25 @@ data class MinimumSystemRequirements(
     val processor: String,
     @SerializedName("storage")
     val storage: String,
-)
+) {
+    fun toDomain(): MinimumSystemRequirementsDomain {
+        return MinimumSystemRequirementsDomain(
+            graphics = graphics,
+            memory = memory,
+            os = os,
+            processor = processor,
+            storage = storage,
+        )
+    }
+}
 
 data class Screenshots(
     @SerializedName("id")
     val id: Int,
     @SerializedName("image")
     val image: String,
-)
+) {
+    fun toDomain(): ScreenshotsDomain {
+        return ScreenshotsDomain(id = id, image = image)
+    }
+}
