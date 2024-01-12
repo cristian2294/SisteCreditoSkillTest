@@ -133,7 +133,7 @@ fun ItemGame(game: Game, navController: NavHostController) {
             .fillMaxWidth()
             .padding(bottom = dimensionResource(id = R.dimen.dimen_16dp))
             .clickable {
-                // TODO: navigate to game detail
+                navController.navigate(Routes.gameDetailScreen.createRoute(game.id))
             },
         elevation = CardDefaults.cardElevation(dimensionResource(id = R.dimen.dimen_4dp)),
         colors = CardDefaults.cardColors(containerColor = Color.White),

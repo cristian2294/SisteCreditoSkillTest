@@ -14,4 +14,10 @@
 
     <!-- Categories Screen  -->
     <string name="categories_screen.soon">Esta funcion no esta habilitada en el mómento. Estara disponible en una proxima version</string>
+
+    <!-- Game Detail Screen  -->
+    <string name="game_detail_screen.developer_title">Desarrolladora</string>
+    <string name="game_detail_screen.url_title">Sitio Web</string>
+    <string name="game_detail_screen.screenshots_title">Capturas de pantalla</string>
+
 </resources>
