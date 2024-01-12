@@ -14,7 +14,7 @@ import retrofit2.Retrofit
 
 @Module
 @InstallIn(ViewModelComponent::class)
-object ListGamesModule {
+class ListGamesModule {
     @Provides
     @ViewModelScoped
     fun provideGamesApi(retrofit: Retrofit): GameApi {
