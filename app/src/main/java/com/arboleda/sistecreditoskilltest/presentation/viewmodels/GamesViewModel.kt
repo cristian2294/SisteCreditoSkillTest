@@ -11,12 +11,13 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class GamesViewModel @Inject constructor(private val getGamesUC: GetGamesUC) : ViewModel() {
+class GamesViewModel @Inject constructor(
+    private val getGamesUC: GetGamesUC,
+    private val _gameState: MutableStateFlow<GameState>,
+    private val _showErrorDialog: MutableStateFlow<Boolean>,
+) : ViewModel() {
 
-    private val _gameState = MutableStateFlow<GameState>(GameState.onLoading)
     val gameState: StateFlow<GameState> get() = _gameState
-
-    private val _showErrorDialog = MutableStateFlow(false)
     val showErrorDialog: StateFlow<Boolean> get() = _showErrorDialog
 
     init {

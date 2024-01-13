@@ -13,6 +13,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.android.scopes.ViewModelScoped
+import kotlinx.coroutines.flow.MutableStateFlow
 
 @Module
 @InstallIn(ViewModelComponent::class)
@@ -60,5 +61,6 @@ object FavoriteGamesModule {
         addFavoriteGameUC = addFavoriteGameUC,
         removeFavoriteGameUC = removeFavoriteGameUC,
         getFavoriteGamesUC = getFavoriteGamesUC,
+        _showErrorDialog = MutableStateFlow(false),
     )
 }

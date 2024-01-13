@@ -23,9 +23,9 @@ class FavoriteGamesViewModel @Inject constructor(
     private val addFavoriteGameUC: AddFavoriteGameUC,
     private val removeFavoriteGameUC: RemoveFavoriteGameUC,
     getFavoriteGamesUC: GetFavoriteGamesUC,
+    private val _showErrorDialog: MutableStateFlow<Boolean>,
 ) : ViewModel() {
 
-    private val _showErrorDialog = MutableStateFlow(false)
     val showErrorDialog: StateFlow<Boolean> get() = _showErrorDialog
 
     val favoriteGameState: StateFlow<FavoriteGameState> =

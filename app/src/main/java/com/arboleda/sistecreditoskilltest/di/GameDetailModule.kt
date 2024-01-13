@@ -4,12 +4,14 @@ import com.arboleda.sistecreditoskilltest.data.endpoints.GameDetailApi
 import com.arboleda.sistecreditoskilltest.data.repositories.network.GameDetailRepositoryImpl
 import com.arboleda.sistecreditoskilltest.domain.repositories.network.GameDetailRepository
 import com.arboleda.sistecreditoskilltest.domain.usecases.GetGameDetailUC
+import com.arboleda.sistecreditoskilltest.presentation.states.GameDetailState
 import com.arboleda.sistecreditoskilltest.presentation.viewmodels.GameDetailViewModel
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.android.scopes.ViewModelScoped
+import kotlinx.coroutines.flow.MutableStateFlow
 import retrofit2.Retrofit
 
 @Module
@@ -36,7 +38,13 @@ object GameDetailModule {
 
     @Provides
     @ViewModelScoped
-    fun provideGameDetailViewModel(getDetailGameUC: GetGameDetailUC): GameDetailViewModel {
-        return GameDetailViewModel(getDetailGameUC)
+    fun provideGameDetailViewModel(
+        getDetailGameUC: GetGameDetailUC,
+    ): GameDetailViewModel {
+        return GameDetailViewModel(
+            getGameDetailUC = getDetailGameUC,
+            _gameDetailState = MutableStateFlow<GameDetailState>(GameDetailState.onLoading),
+            _showErrorDialog = MutableStateFlow<Boolean>(false),
+        )
     }
 }
