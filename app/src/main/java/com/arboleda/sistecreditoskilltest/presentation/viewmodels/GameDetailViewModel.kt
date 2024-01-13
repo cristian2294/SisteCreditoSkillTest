@@ -13,12 +13,12 @@ import javax.inject.Inject
 @HiltViewModel
 class GameDetailViewModel @Inject constructor(
     private val getGameDetailUC: GetGameDetailUC,
+    private val _gameDetailState: MutableStateFlow<GameDetailState>,
+    private val _showErrorDialog: MutableStateFlow<Boolean>,
 ) : ViewModel() {
 
-    private val _gameDetailState = MutableStateFlow<GameDetailState>(GameDetailState.onLoading)
     val gameDetailState: StateFlow<GameDetailState> get() = _gameDetailState
 
-    private val _showErrorDialog = MutableStateFlow(false)
     val showErrorDialog: StateFlow<Boolean> get() = _showErrorDialog
 
     fun getGameDetail(id: Int) {
